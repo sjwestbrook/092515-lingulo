@@ -1,0 +1,11 @@
+<!-- didn't see 'modernizr.load' option when downloading modernizr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+
+<!-- include external jQuery file but fall back to local file if external one fails to load ! -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.11.3.min.js"><\/script>'</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.1/js/lightbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js"></script>
