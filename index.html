@@ -24,6 +24,12 @@
         <li><a href="javascript:void(0)">About</a></li>
         <li><a href="javascript:void(0)">Contact</a></li>
       </ul>
+      <select id="alternative_menu">
+        <option value="Home">Home</option>
+        <option value="Portfolio">Portfolio</option>
+        <option value="About">About</option>
+        <option value="Contact">Contact</option>
+      </select>
     </nav>
   </header>
 
@@ -229,7 +235,7 @@
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.1/js/lightbox.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js"></script>
+  <script src="js/jquery.slides.min.js"></script>
 
 
 
@@ -255,7 +261,13 @@
                     active: false,
                     auto: true,
                     interval: 6000,
-                    pauseOnHover: false}});});
+                    pauseOnHover: false}});
+      });
+
+      $("#alternative_menu").change(function() {
+        $selected = $("#alternative_menu option:selected");
+        window.location.href = "http://www.lingulo.com/" + $selected.val();
+      });
   </script>
 
 </body>
