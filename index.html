@@ -15,14 +15,12 @@
 
 <body style="border-top: 5px solid #e56038; background: #ebe8de; font-family: 'Open Sans', sans-serif; color: #333333">
   <header>
-    <h1>Lingulo HTML5</h1>
-    <p>A responsive website tutorial</p>
-    <!--
     <div class="toggleMobile">
-        <span class="menu1"></span>
-        <span class="menu2"></span>
-        <span class="menu3"></span></div>
-      <div id="mobileMenu">
+      <span class="menu1"></span>
+      <span class="menu2"></span>
+      <span class="menu3"></span>
+    </div>
+    <div id="mobileMenu">
       <ul>
         <li><a href="javascript:void(0)">Home</a></li>
         <li><a href="javascript:void(0)">Porfolio</a></li>
@@ -30,13 +28,8 @@
       </ul>
     </div>
 
-    <select id="alternative_menu" size="1">
-        <option value="Home">Home</option>
-        <option value="Portfolio">Portfolio</option>
-        <option value="About">About</option>
-        <option value="Contact">Contact</option>
-    </select>
-      -->
+    <h1>Lingulo HTML5</h1>
+    <p>A responsive website tutorial</p>
     <nav>
       <h2 class="hidden">Our navigation</h2>
       <ul>
@@ -46,7 +39,6 @@
         <li><a href="javascript:void(0)">Contact</a></li>
       </ul>
     </nav>
-
   </header>
 
   <section class="container">
@@ -66,6 +58,7 @@
       <p>Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. <a class="responsive_button" href="javascript:void(0)">Mehr lesen...</a></p>
       <a class="button" href="javascript:void(0)">Mehr lesen</a>
     </article>
+
     <div id="slides">
       <img src="images/slide1.jpg" alt="slide 1">
       <img src="images/slide2.jpg" alt="slide 2">
@@ -184,6 +177,8 @@
   </section>
 
   <footer>
+    <a href="#" class="go-top">Go Top</a>
+
     <h2 class="hidden">Our footer</h2>
     <section id="copyright">
       <h3 class="hidden">Copyright notice</h3>
@@ -242,8 +237,8 @@
 
   <!-- compile with Webpack? -->
 
-  <!-- didn't see 'modernizr.load' option when downloading modernizr -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <!-- didn't see 'modernizr.load' option when downloading modernizr - copied modernizr from lingular github -->
+  <script src="js/modernizr-custom.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -283,11 +278,54 @@
       });
     });
 
-
+    /* where does this go? is this even needed?
+      "When we select an item from the select box we want to be redirected to the selected page. To do so we will simply add the following code into the $(document).ready part in our script.js file.""
+    */
     $("#alternative_menu").change(function() {
       $selected = $("#alternative_menu option:selected");
       window.location.href = "http://www.lingulo.com/" + $selected.val();
     });
+
+
+    // mobile navigation
+    // http://webdesign.tutsplus.com/articles/quick-tip-implement-a-sticky-back-to-top-button--webdesign-10896
+    (function ($, window, document, undefined) {
+      'use strict';$(function () {
+        $("#mobileMenu").hide();
+        $(".toggleMobile").click(function() {
+          $(this).toggleClass("active");
+          $("#mobileMenu").slideToggle(500);
+        });
+      });
+      $(window).on("resize", function() {
+        if($(this).width() > 500) {
+          $("#mobileMenu").hide();
+          $(".toggleMobile").removeClass("active");
+        }
+      });
+    })(jQuery, window, document);
+
+
+    // sticky button  - code
+
+          $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > 200) {
+            $('.go-top').fadeIn(200);
+          } else {
+            $('.go-top').fadeOut(200);
+          }
+        });
+
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+          event.preventDefault();
+
+          $('html, body').animate({scrollTop: 0}, 300);
+        })
+      });
+
   </script>
 
 </body>
